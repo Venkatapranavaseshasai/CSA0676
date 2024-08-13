@@ -1,0 +1,152 @@
+JAVA
+PRACTICE
+SECTION-4
+To create a class ComputeMethods that utilizes the java.util.Random
+class, you might want to implement methods that perform various
+computations or generate random data. Below are some examples of
+what you can include in this class:
+Example 1: Generate Random Numbers and Basic Computations
+1. Generating Random Integers and Doubles:
+o Methods to generate random integers within a range.
+o Methods to generate random doubles within a range.
+2. Computations Using Random Numbers:
+o Methods to compute the sum, average, or other statistics
+using generated random numbers.
+Here’s a complete example of the ComputeMethods class:
+import java.util.Random;
+public class ComputeMethods {
+private Random random;
+public ComputeMethods() {
+// Initialize the Random object
+random = new Random();
+}
+// Method to generate a random integer between min and max
+(inclusive)
+public int getRandomInt(int min, int max) {
+return random.nextInt((max - min) + 1) + min;
+}
+// Method to generate a random double between min and max
+public double getRandomDouble(double min, double max) {
+return min + (max - min) * random.nextDouble();
+}
+// Method to compute the average of an array of integers
+public double computeAverage(int[] numbers) {
+if (numbers.length == 0) return 0;
+int sum = 0;
+for (int number : numbers) {
+sum += number;
+}
+return (double) sum / numbers.length;
+}
+// Method to compute the sum of an array of doubles
+public double computeSum(double[] numbers) {
+double sum = 0.0;
+for (double number : numbers) {
+sum += number;
+}
+return sum;
+}
+// Method to generate an array of random integers
+public int[] generateRandomIntArray(int size, int min, int max) {
+int[] array = new int[size];
+for (int i = 0; i &lt; size; i++) {
+array[i] = getRandomInt(min, max);
+}
+return array;
+}
+// Method to generate an array of random doubles
+public double[] generateRandomDoubleArray(int size, double min,
+double max) {
+double[] array = new double[size];
+for (int i = 0; i &lt; size; i++) {
+array[i] = getRandomDouble(min, max);
+}
+return array;
+}
+public static void main(String[] args) {
+ComputeMethods cm = new ComputeMethods();
+// Generate random numbers and compute results
+int[] intArray = cm.generateRandomIntArray(5, 1, 100);
+double[] doubleArray = cm.generateRandomDoubleArray(5, 0.0,
+1.0);
+System.out.println(&quot;Random Integers:&quot;);
+for (int num : intArray) {
+System.out.print(num + &quot; &quot;);
+}
+System.out.println(&quot;\nAverage of Integers: &quot; +
+cm.computeAverage(intArray));
+System.out.println(&quot;\nRandom Doubles:&quot;);
+for (double num : doubleArray) {
+System.out.print(num + &quot; &quot;);
+}
+System.out.println(&quot;\nSum of Doubles: &quot; +
+cm.computeSum(doubleArray));
+}
+}
+CODE:
+import java.util.Random;
+public class ComputeMethods {
+ private Random random;
+ // Constructor to initialize the Random object
+ public ComputeMethods() {
+ random = new Random();
+ }
+ // Method to generate a random integer between min and max (inclusive)
+ public int getRandomInt(int min, int max) {
+ return random.nextInt((max - min) + 1) + min;
+ }
+ // Method to generate a random double between min and max
+ public double getRandomDouble(double min, double max) {
+ return min + (max - min) * random.nextDouble();
+ }
+ // Method to compute the average of an array of integers
+ public double computeAverage(int[] numbers) {
+ if (numbers.length == 0) return 0;
+ int sum = 0;
+ for (int number : numbers) {
+ sum += number;
+ }
+ return (double) sum / numbers.length;
+ }
+ // Method to compute the sum of an array of doubles
+ public double computeSum(double[] numbers) {
+ double sum = 0.0;
+ for (double number : numbers) {
+ sum += number;
+ }
+ return sum;
+ }
+ // Method to generate an array of random integers
+ public int[] generateRandomIntArray(int size, int min, int max) {
+ int[] array = new int[size];
+ for (int i = 0; i < size; i++) {
+ array[i] = getRandomInt(min, max);
+ }
+ return array;
+ }
+ // Method to generate an array of random doubles
+ public double[] generateRandomDoubleArray(int size, double min, double max) {
+ double[] array = new double[size];
+ for (int i = 0; i < size; i++) {
+ array[i] = getRandomDouble(min, max);
+ }
+ return array;
+ }
+ // Main method to test the functionality of the ComputeMethods class
+ public static void main(String[] args) {
+ ComputeMethods cm = new ComputeMethods();
+ // Generate random numbers and compute results
+ int[] intArray = cm.generateRandomIntArray(5, 1, 100);
+ double[] doubleArray = cm.generateRandomDoubleArray(5, 0.0, 1.0);
+ System.out.println("Random Integers:");
+ for (int num : intArray) {
+ System.out.print(num + " ");
+ }
+ System.out.println("\nAverage of Integers: " + cm.computeAverage(intArray));
+ System.out.println("Random Doubles:");
+ for (double num : doubleArray) {
+ System.out.print(num + " ");
+ }
+ System.out.println("\nSum of Doubles: " + cm.computeSum(doubleArray));
+ }
+}
